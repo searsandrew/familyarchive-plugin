@@ -7,3 +7,18 @@ Version: 1.0
 Author: Andrew Sears
 Author URI: http://www.mayfifteenth.com
 */
+
+use Mayfifteenth\FamilyArchive\Core\FamilyArchive;
+
+// Family Archive depends on PSR-4 Autoload
+require('autoload.php');
+
+// Family Archive has global constants
+require('constants.php');
+
+// Register and load Family Archive
+(static function () {
+    add_action('init', static function() {
+        (new FamilyArchive(__FILE__))->execute();
+    }, 1000);
+})();
