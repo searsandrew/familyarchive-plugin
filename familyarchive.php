@@ -20,5 +20,5 @@ require('constants.php');
 (static function () {
     add_action('init', static function() {
         (new FamilyArchive(__FILE__))->execute();
-    }, 1000);
+    });
 })();

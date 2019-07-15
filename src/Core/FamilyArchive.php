@@ -44,6 +44,7 @@ final class FamilyArchive{
      */
     public function execute() : void
     {
-
+        $customPosts = new CustomPostTypes();
+        $customPosts->createTypes();
     }
 }
