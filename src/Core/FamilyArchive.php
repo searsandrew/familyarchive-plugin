@@ -5,7 +5,7 @@ namespace Mayfifteenth\FamilyArchive\Core;
 /**
  * Loads Family Archive and extracts options from WordPress. Also makes API availbe to be consumed by Family Archive themes.
  */
-final class FamilyArchive{
+final class FamilyArchive {
     /**
      * Store the plugin file so it can be used later
      * 
