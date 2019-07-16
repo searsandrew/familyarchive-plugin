@@ -3,22 +3,22 @@
 namespace Mayfifteenth\FamilyArchive\Core;
 
 /**
- * Custom Post Types is used to register new custom post types with Wordpress
+ * Custom Taxonomy is used to register new custom taxonomies with Wordpress
  */
-class CustomPostTypes extends ConfigManager
+class CustomTaxonomy extends ConfigManager
 {
     /**
-     * Construct Custom Post Types
+     * Construct Custom Taxonomy
      */
     public function __construct()
     {
-        $this->setFilename('/custom-posts.json');
+        $this->setFilename('/custom-taxonomies.json');
         $this->types = $this->getConfigArray();
-        $this->errorHeading = 'Custom Post Types Not Found!';
+        $this->errorHeading = 'Custom Taxonomy Not Found!';
     }
 
     /**
-     * Create Types is used to register the custom post types with Wordpress
+     * Create Types is used to register the custom taxonomies with Wordpress
      * 
      * @return bool
      */
@@ -32,11 +32,13 @@ class CustomPostTypes extends ConfigManager
 
         foreach($types as $key => $type)
         {
-            if(!array_key_exists('label', $type))
+            if(!array_key_exists('objectType', $type))
             {
                 return false;
             }
-            register_post_type($key, $type);
+            $objectType = $type['objectType'];
+            unset($type['objectType']);
+            register_taxonomy($key, $objectType, $type);
         }
 
         return true;

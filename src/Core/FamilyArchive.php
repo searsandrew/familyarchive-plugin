@@ -46,5 +46,8 @@ final class FamilyArchive {
     {
         $customPosts = new CustomPostTypes();
         $customPosts->createTypes();
+
+        $customTaxonomy = new CustomTaxonomy();
+        $customTaxonomy->createTypes();
     }
 }
