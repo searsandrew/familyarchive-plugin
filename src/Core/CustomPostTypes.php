@@ -48,11 +48,11 @@ class CustomPostTypes
 
         foreach($types as $key => $type)
         {
-            if(!array_key_exists('label', $type[0]))
+            if(!array_key_exists('label', $type))
             {
                 return false;
             }
-            register_post_type($key, $type[0]);
+            register_post_type($key, $type);
         }
 
         return true;
