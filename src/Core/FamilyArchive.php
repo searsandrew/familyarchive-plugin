@@ -2,6 +2,8 @@
 
 namespace Mayfifteenth\FamilyArchive\Core;
 
+use Mayfifteenth\FamilyArchive\Builder\{CustomPostTypes, CustomTaxonomy};
+
 /**
  * Loads Family Archive and extracts options from WordPress. Also makes API availbe to be consumed by Family Archive themes.
  */

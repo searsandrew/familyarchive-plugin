@@ -1,6 +1,8 @@
 <?php
 
-namespace Mayfifteenth\FamilyArchive\Core;
+namespace Mayfifteenth\FamilyArchive\Builder;
+
+use Mayfifteenth\FamilyArchive\Core\ConfigManager;
 
 /**
  * Custom Post Types is used to register new custom post types with Wordpress

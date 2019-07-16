@@ -1,6 +1,8 @@
 <?php
 
-namespace Mayfifteenth\FamilyArchive\Core;
+namespace Mayfifteenth\FamilyArchive\Builder;
+
+use Mayfifteenth\FamilyArchive\Core\ConfigManager;
 
 /**
  * Custom Taxonomy is used to register new custom taxonomies with Wordpress
@@ -15,6 +17,14 @@ class CustomTaxonomy extends ConfigManager
         $this->setFilename('/custom-taxonomies.json');
         $this->types = $this->getConfigArray();
         $this->errorHeading = 'Custom Taxonomy Not Found!';
+
+        if (is_admin())
+        {
+            foreach(array_keys($this->types) as $type)
+            {
+                $termMeta = new CustomTermMeta($type);
+            }
+        }
     }
 
     /**
